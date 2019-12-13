@@ -1,8 +1,12 @@
+import os
 from setuptools import setup
 from setuptools import find_packages
-from distutils.core import Command
-import subprocess
-import sys
+from lds_merkle_proof_2019 import __version__
+
+here = os.path.abspath(os.path.dirname(__file__))
+
+with open(os.path.join(here, 'README.md')) as fp:
+    long_description = fp.read()
 
 with open('requirements.txt') as f:
     install_reqs = f.readlines()
@@ -10,12 +14,15 @@ with open('requirements.txt') as f:
 
 setup(
     name='lds-merkle-proof-2019',
-    version='0.0.1',
+    version=__version__,
     packages=find_packages(),
     install_requires=reqs,
-    url='',
-    license='',
-    author='anthonyronning',
-    author_email='aronning@learningmachine.com',
-    description='MerkleProof2019 module for python'
+    url='https://github.com/blockchain-certificates/lds-merkle-proof-2019-py',
+    license='MIT',
+    author='Blockcerts',
+    author_email='info@blockcerts.org',
+    description='MerkleProof2019 module for python',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    include_package_data=True
 )
