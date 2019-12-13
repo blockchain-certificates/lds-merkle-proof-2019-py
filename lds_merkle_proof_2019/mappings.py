@@ -28,17 +28,17 @@ chain = {
   }
 }
 
-def findChainById(key, value):
+def findChainById(id):
     for i, dic in chain.items():
-        if chain[i]['id'] == value:
+        if chain[i]['id'] == id:
             return i
     return ''
 
 
 
-def findNetworkById(blockchain, key, value):
+def findNetworkById(blockchain, id):
     networks = chain[blockchain]['networks']
     for i, dic in networks.items():
-        if networks[i] == value:
+        if networks[i] == id:
             return i
     return ''
