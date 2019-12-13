@@ -1,7 +1,7 @@
 import unittest
 from lds_merkle_proof_2019.merkle_proof_2019 import MerkleProof2019
 
-proofEncoded = 'z6nGv6rMRybRe9CuMzbQbdu7sA858v1d13JU3hoAr1x93cheinB35kDXqCvaA93WTLWGtLZMdQSvvNCxEMZPhLvDa4CbUYkm4pCwBe7kCZAsuwHZwHxgyzCbRUWFbMXHhkVSHoPYmPzfi4arfHKMgKSurZ7oqe3GHRdi78TbHGvA65edK8JBEdTUt8SpCdc7wz5qiwj3THtcNAXfgK4LmCAu4fq8CnjLcMtGoEdfXfjy3turtaTapyM3katuYKAzbJF3FiE8i8NXBsiBnEbvKk7k'
+proofEncoded = b'zmz7LKNSJbePX9eJWLTaNA3X69vbLSiaJWJPVpFWznKg19Aeug3PQHFrkySKFvvGJhECwPMn947tzUFYnVMxbS428oLi5tw2HLKP9szAArV3TbfDSKXddpfV6fPBde6XN8FDbri2wGtYrgyzDXEaGu6QzzUd1GDMTcZ7c9FVFTb8k5v6crug5aLt2Sevap1gE9DS7ZUpfRMv8TQHiktNnQBGgc74g8soERFuziTDWoPGTu3Xb6bAs431DJpGGKHDenmFjkQFUJnwQ9nFKKowYnf9h8Gp8gcQmE78aoWhtEG4qV6Jaik8HhPTQX3dD7MQrXzY8GAHh8tKWQfscyGWb6w4FMpok13jBpZWpaPTVR5fMXsa1garazbMRL7xssnwEJ2gzrCDrGkFXb3JyDGoXMffAYKHUetADrCd3sZKW9k5jC5d6bMA5zSwbyeZE9BjaD27mTrJXSzguAZ1pKsghFztG5u5h6jLgBGMp2aPFopvESSnCA'
 proofDecoded = {
     "path": [
         {"right": "51b4e22ed024ec7f38dc68b0bf78c87eda525ab0896b75d2064bdb9fc60b2698"},
@@ -16,17 +16,39 @@ proofDecoded = {
 
 
 class TestEncoding(unittest.TestCase):
-    def test_encoding_correct(self):
+    def test_decoding_correct(self):
         mp2019 = MerkleProof2019()
 
         check_decoded = mp2019.decode(proofEncoded)
         self.assertEqual(check_decoded, proofDecoded)
 
+    def test_decoding_incorrect(self):
+        mp2019 = MerkleProof2019()
+
+        error = False
+        try:
+            check_decoded = mp2019.decode('not a valid encoding')
+        except:
+            error = True
+
+        self.assertTrue(error)
+
+    def test_encoding_correct(self):
+        mp2019 = MerkleProof2019()
+
+        check_encoded = mp2019.encode(proofDecoded)
+        self.assertEqual(check_encoded, proofEncoded)
+
     def test_encoding_incorrect(self):
         mp2019 = MerkleProof2019()
 
-        check_decoded = mp2019.decode('not a valid encoding')
-        self.assertNotEqual(check_decoded, proofDecoded)
+        error = False
+        try:
+            check_encoded = mp2019.encode('not a valid decoding')
+        except:
+            error = True
+
+        self.assertTrue(error)
 
 
 if __name__ == '__main__':
