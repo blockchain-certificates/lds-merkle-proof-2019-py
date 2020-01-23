@@ -15,6 +15,7 @@ chain = {
     'id': 0,
     'networks': {
       'mainnet': 1,
+      'regtest': 2,
       'testnet': 3
     }
   },
@@ -25,6 +26,9 @@ chain = {
       'ropsten': 3,
       'rinkeby': 4
     }
+  },
+  'mocknet': {
+      'id': -1
   }
 }
 

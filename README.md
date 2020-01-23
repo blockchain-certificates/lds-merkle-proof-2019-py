@@ -60,7 +60,7 @@ print(decoded_json) # {'path': [{'right': '51b4e22ed024ec7f38dc68b0bf78c87eda525
 - Install [twine](github.com/pypa/twine) - `pip install twine`
 - Increment version in `__init__.py`
 - Remove current items in dist - `rm -rf dist/*`
-- Build cert-issuer - `python setup.py install`
+- Build package - `python setup.py install`
 - Build sdist - `python setup.py sdist`
 - Run pypi test upload - `twine upload --repository-url https://test.pypi.org/legacy/ dist/*`
 - Upload to pypi - `twine upload --repository-url https://upload.pypi.org/legacy/ dist/*`

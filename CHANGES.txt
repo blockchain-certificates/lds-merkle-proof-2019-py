@@ -1,0 +1,4 @@
+v0.0.2, 23/01/2020 -- Add mocknet support
+                    - Add bitcoin regtest support
+                    - Networks not necessary for cbor mappings
+v0.0.1, 13/12/2019 -- Initial Release

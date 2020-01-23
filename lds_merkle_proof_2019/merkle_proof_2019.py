@@ -60,7 +60,7 @@ class MerkleProof2019:
                     continue
                 elif i == 1:
                     anchor_item_list.append([0, chain[anchor_partial]['id']])
-                elif i == 2:
+                elif i == 2 and 'networks' in chain[anchor_items[i - 1]]:
                     anchor_item_list.append([1, chain[anchor_items[i - 1]]['networks'][anchor_partial]])
                 else:
                     anchor_item_list.append([i - 1, dumps(anchor_partial)])
