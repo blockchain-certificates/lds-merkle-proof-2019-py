@@ -1,7 +1,7 @@
 [![PyPI version](https://badge.fury.io/py/lds-merkle-proof-2019.svg)](https://badge.fury.io/py/lds-merkle-proof-2019)
 
 # lds-merkle-proof-2019-py
-[MerkleProof2019](https://w3c-dvcg.github.io/lds-merkle-proof-2019/) implementation in python
+[MerkleProof2019](https://w3c-ccg.github.io/lds-merkle-proof-2019/) implementation in python
 
 ## Installation
 
